@@ -1,0 +1,24 @@
+// See https://containers.dev/implementors/json_reference/ for configuration reference
+{
+  "name": "react-next-devcontainer-template",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "streetsidesoftware.code-spell-checker",
+        "oderwat.indent-rainbow",
+        "esbenp.prettier-vscode",
+        "eamodio.gitlens",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  },
+  // https://code.visualstudio.com/remote/advancedcontainers/improve-performance
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+  "postCreateCommand": "sudo chown node:node . -R"
+}
